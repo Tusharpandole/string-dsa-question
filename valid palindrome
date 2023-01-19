@@ -1,0 +1,30 @@
+time complexity = O(n) and space complexity = o(n)
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        if( s.length() == 1){
+            return true ;
+        }
+        int flag = 0 ;
+       transform(s.begin(), s.end(), s.begin(), ::tolower); 
+       string ch="" ;
+       for(int i=0;i<s.length() ;i++){
+           if(s[i]>='a' && s[i] <='z' || s[i] >= '0' && s[i] <= '9'){
+              ch.push_back(s[i]) ;
+           }
+       }
+       int i=0,j=ch.length()-1 ;
+       while(i<j){
+           if(ch[i] !=ch[j]){
+               flag=1 ;
+           }
+           i++ ;
+           j-- ;
+       }
+       if(flag == 1){
+           return false ;
+       }
+       else 
+           return true ;
+    }
+};
